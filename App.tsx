@@ -19,10 +19,11 @@ export default function App() {
       <View style={styles.container}>
         {/* Album Cover */}
         <ImageBackground
-          source={{ uri: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7d/bd/e9/7dbde97e-b97d-8cc3-0203-218b687408a9/196872555059.jpg/800x800cc.jpg" }} // Replace with your image URL
+          source={require('./res/Sticky.jpg')} //relative path
           style={styles.cover}
         />
         
+
         {/* Song Info */}
         <View style={styles.info}>
           <Text style={styles.title}>Sticky</Text>
@@ -73,8 +74,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   cover: {
-    width: 375,
-    height: 200,
+    width: 350,  // Adjust size as necessary
+    height: 350, // Adjust size as necessary
     borderRadius: 10,
     overflow: "hidden",
     marginBottom: 20,
