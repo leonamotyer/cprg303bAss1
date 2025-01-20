@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -35,17 +36,17 @@ export default function App() {
       {/* Controls */}
       <View style={styles.controls}>
         <TouchableOpacity style={styles.controlButton}>
-          <Ionicons name="play-skip-back-outline" size={24} color="#666" />
+        <AntDesign name="stepbackward" size={40} color="ffff" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.controlButton} onPress={togglePlayPause}>
-          <Ionicons
-            name={isPlaying ? "pause-circle-outline" : "play-circle-outline"}
-            size={40}
-            color="#666"
+          <AntDesign
+            name={isPlaying ? "pausecircle" : "play"}
+            size={50}
+            color="#ffff"
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.controlButton}>
-          <Ionicons name="play-skip-forward-outline" size={24} color="#666" />
+        <AntDesign name="stepforward" size={40} color="ffff" />
         </TouchableOpacity>
       </View>
     </View>
@@ -55,13 +56,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#black",
+    backgroundColor: "#949486",
     justifyContent: "center",
     alignItems: "center",
   },
   cover: {
     width: 375,
-    height: 200,
+    height: 500,
     borderRadius: 10,
     overflow: "hidden",
     marginBottom: 20,
@@ -110,6 +111,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   controlButton: {
-    marginHorizontal: 15,
+    marginHorizontal: 20,
   },
 });
