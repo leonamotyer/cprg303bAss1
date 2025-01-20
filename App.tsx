@@ -26,8 +26,8 @@ export default function App() {
 
         {/* Song Info */}
         <View style={styles.info}>
-          <Text style={styles.title}>Sticky</Text>
-          <Text style={styles.artist}>Tyler the Creator</Text>
+          <Text style={styles.title}>Sticky (feat. GloRilla, Sexyy Red & Lil Wayne)</Text>
+          <Text style={styles.artist}>Tyler, The Creator, GloRilla, Sexyy Red & Lil Wayne</Text>
         </View>
 
         {/* Progress Bar */}
@@ -42,17 +42,18 @@ export default function App() {
         {/* Controls */}
         <View style={styles.controls}>
           <TouchableOpacity style={styles.controlButton}>
-            <Ionicons name="play-skip-back-outline" size={24} color="#666" />
+            <Ionicons name="play-skip-back-outline" size={40} color="#d0d0cd" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.controlButton} onPress={togglePlayPause}>
             <Ionicons
               name={isPlaying ? "pause-circle-outline" : "play-circle-outline"}
-              size={40}
-              color="#666"
+              size={60}
+              color="#ffffff"
+              
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.controlButton}>
-            <Ionicons name="play-skip-forward-outline" size={24} color="#666" />
+            <Ionicons name="play-skip-forward-outline" size={40} color="#ffffff" />
           </TouchableOpacity>
         </View>
       </View>
@@ -61,9 +62,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  // Apply to the LinearGradient component
+ //full background colour 
   linearGradient: {
-    flex: 1, // Ensure it takes full screen height
+    flex: 1, 
     justifyContent: "center",
     alignItems: "center",
   },
@@ -87,23 +88,23 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: "#ffffff",
   },
   artist: {
     fontSize: 14,
-    color: "#666",
+    color: "#d0d0cd",
   },
   progressBarContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: 375,
+    width: 475,
     paddingHorizontal: 20,
     marginBottom: 20,
   },
   progressBar: {
     flex: 1,
     height: 5,
-    backgroundColor: "#d1d3cf",
+    backgroundColor: "#7a7a6d",
     borderRadius: 3,
     marginHorizontal: 10,
     position: "relative",
@@ -111,12 +112,13 @@ const styles = StyleSheet.create({
   progressBarFill: {
     width: "10%", // Change progress percentage here
     height: "100%",
-    backgroundColor: "#666",
+    backgroundColor: "#d0d0cd",
     borderRadius: 3,
   },
   time: {
     fontSize: 12,
-    color: "#666",
+    color: "#d0d0cd"
+    
   },
   controls: {
     flexDirection: "row",
@@ -124,6 +126,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   controlButton: {
-    marginHorizontal: 15,
+    marginHorizontal: 20,
   },
+
+
 });
