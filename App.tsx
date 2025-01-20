@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from 'expo-linear-gradient'; // Importing the LinearGradient component
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -10,52 +11,64 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      {/* Album Cover */}
-      <ImageBackground
-        source={{ uri: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7d/bd/e9/7dbde97e-b97d-8cc3-0203-218b687408a9/196872555059.jpg/800x800cc.jpg" }} // Replace with your image URL
-        style={styles.cover}
-      />
-      
-      {/* Song Info */}
-      <View style={styles.info}>
-        <Text style={styles.title}>Sticky</Text>
-        <Text style={styles.artist}>Tyler the Creator</Text>
-      </View>
-
-      {/* Progress Bar */}
-      <View style={styles.progressBarContainer}>
-        <Text style={styles.time}>0:02</Text>
-        <View style={styles.progressBar}>
-          <View style={styles.progressBarFill}></View>
+    
+    <LinearGradient
+      colors={['#969685', '#7a7a6d', '#56564d']} // Gradient colors
+      style={styles.linearGradient}//spotifys multiple hues
+    >
+      <View style={styles.container}>
+        {/* Album Cover */}
+        <ImageBackground
+          source={{ uri: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7d/bd/e9/7dbde97e-b97d-8cc3-0203-218b687408a9/196872555059.jpg/800x800cc.jpg" }} // Replace with your image URL
+          style={styles.cover}
+        />
+        
+        {/* Song Info */}
+        <View style={styles.info}>
+          <Text style={styles.title}>Sticky</Text>
+          <Text style={styles.artist}>Tyler the Creator</Text>
         </View>
-        <Text style={styles.time}>4:13</Text>
-      </View>
 
-      {/* Controls */}
-      <View style={styles.controls}>
-        <TouchableOpacity style={styles.controlButton}>
-          <Ionicons name="play-skip-back-outline" size={24} color="#666" />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.controlButton} onPress={togglePlayPause}>
-          <Ionicons
-            name={isPlaying ? "pause-circle-outline" : "play-circle-outline"}
-            size={40}
-            color="#666"
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.controlButton}>
-          <Ionicons name="play-skip-forward-outline" size={24} color="#666" />
-        </TouchableOpacity>
+        {/* Progress Bar */}
+        <View style={styles.progressBarContainer}>
+          <Text style={styles.time}>0:02</Text>
+          <View style={styles.progressBar}>
+            <View style={styles.progressBarFill}></View>
+          </View>
+          <Text style={styles.time}>4:13</Text>
+        </View>
+
+        {/* Controls */}
+        <View style={styles.controls}>
+          <TouchableOpacity style={styles.controlButton}>
+            <Ionicons name="play-skip-back-outline" size={24} color="#666" />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.controlButton} onPress={togglePlayPause}>
+            <Ionicons
+              name={isPlaying ? "pause-circle-outline" : "play-circle-outline"}
+              size={40}
+              color="#666"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.controlButton}>
+            <Ionicons name="play-skip-forward-outline" size={24} color="#666" />
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 }
 
 const styles = StyleSheet.create({
+  // Apply to the LinearGradient component
+  linearGradient: {
+    flex: 1, // Ensure it takes full screen height
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  // Apply container styles to inner content
   container: {
     flex: 1,
-    backgroundColor: "#black",
     justifyContent: "center",
     alignItems: "center",
   },
