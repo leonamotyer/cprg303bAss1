@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from 'expo-linear-gradient'; // Importing the LinearGradient component
+import { AntDesign } from '@expo/vector-icons';
+
+
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -13,7 +16,7 @@ export default function App() {
   return (
     
     <LinearGradient
-      colors={['#969685', '#7a7a6d', '#56564d']} // Gradient colors
+     colors={['#969685', '#7a7a6d', '#56564d']} // Gradient colors
       style={styles.linearGradient}//spotifys multiple hues
     >
       <View style={styles.container}>
@@ -22,7 +25,7 @@ export default function App() {
           source={require('./res/Sticky.jpg')} //relative path
           style={styles.cover}
         />
-        
+             
 
         {/* Song Info */}
         <View style={styles.info}>
@@ -39,21 +42,26 @@ export default function App() {
           <Text style={styles.time}>4:13</Text>
         </View>
 
-        {/* Controls */}
+              {/* Controls */}
         <View style={styles.controls}>
+          
           <TouchableOpacity style={styles.controlButton}>
-            <Ionicons name="play-skip-back-outline" size={40} color="#d0d0cd" />
+            <AntDesign name="stepbackward" size={40} color="#d0d0cd" />
           </TouchableOpacity>
+          
+          
           <TouchableOpacity style={styles.controlButton} onPress={togglePlayPause}>
-            <Ionicons
-              name={isPlaying ? "pause-circle-outline" : "play-circle-outline"}
+            <AntDesign
+                names={isPlaying ? 'pausecircle' : 'playcircle'}
+              
               size={60}
               color="#ffffff"
-              
             />
           </TouchableOpacity>
+          
+          
           <TouchableOpacity style={styles.controlButton}>
-            <Ionicons name="play-skip-forward-outline" size={40} color="#ffffff" />
+            <AntDesign name="stepforward" size={40} color="#ffffff" />
           </TouchableOpacity>
         </View>
       </View>
