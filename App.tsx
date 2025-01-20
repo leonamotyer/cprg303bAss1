@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import AntDesign from '@expo/vector-icons/AntDesign';
+import Feather from '@expo/vector-icons/Feather';
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -36,6 +37,9 @@ export default function App() {
       {/* Controls */}
       <View style={styles.controls}>
         <TouchableOpacity style={styles.controlButton}>
+        <Ionicons name="shuffle" size={35} color="black" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.controlButton}>
         <AntDesign name="stepbackward" size={40} color="ffff" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.controlButton} onPress={togglePlayPause}>
@@ -47,6 +51,9 @@ export default function App() {
         </TouchableOpacity>
         <TouchableOpacity style={styles.controlButton}>
         <AntDesign name="stepforward" size={40} color="ffff" />
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.controlButton}>
+        <Feather name="repeat" size={24} color="black" />
         </TouchableOpacity>
       </View>
     </View>
