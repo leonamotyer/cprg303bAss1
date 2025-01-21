@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { AntDesign, Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient'; // Importing the LinearGradient component
-import { AntDesign } from '@expo/vector-icons';
-
-
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -14,18 +11,30 @@ export default function App() {
   };
 
   return (
-    
     <LinearGradient
-     colors={['#969685', '#7a7a6d', '#56564d']} // Gradient colors
-      style={styles.linearGradient}//spotifys multiple hues
+      colors={['#969685', '#7a7a6d', '#56564d']} // Gradient colors
+      style={styles.linearGradient} //spotifys multiple hues
     >
       <View style={styles.container}>
+        
+        {/* Header Row */} 
+        <View style={styles.headerRow}>
+          <TouchableOpacity>
+            <AntDesign name="down" size={24} color="#ffffff" />  
+          </TouchableOpacity>
+          
+          <Text style={styles.headerTitle}>Everyday tunes</Text>
+          
+          <TouchableOpacity>
+            <AntDesign name="ellipsis1" size={24} color="#ffffff" />
+          </TouchableOpacity>
+        </View>
+
         {/* Album Cover */}
         <ImageBackground
           source={require('./res/Sticky.jpg')} //relative path
           style={styles.cover}
         />
-             
 
         {/* Song Info */}
         <View style={styles.info}>
@@ -42,23 +51,19 @@ export default function App() {
           <Text style={styles.time}>4:13</Text>
         </View>
 
-              {/* Controls */}
+        {/* Controls */}
         <View style={styles.controls}>
-          
           <TouchableOpacity style={styles.controlButton}>
             <AntDesign name="stepbackward" size={40} color="#d0d0cd" />
           </TouchableOpacity>
           
-          
           <TouchableOpacity style={styles.controlButton} onPress={togglePlayPause}>
-            <AntDesign
-                names={isPlaying ? 'pausecircle' : 'playcircle'}
-              
-              size={60}
-              color="#ffffff"
-            />
+          <Ionicons
+            name={isPlaying ? "pause-circle-outline" : "play-circle-outline"}
+            size={60}
+            color="#ffffff"
+          />
           </TouchableOpacity>
-          
           
           <TouchableOpacity style={styles.controlButton}>
             <AntDesign name="stepforward" size={40} color="#ffffff" />
@@ -68,7 +73,6 @@ export default function App() {
     </LinearGradient>
   );
 }
-
 const styles = StyleSheet.create({
  //full background colour 
   linearGradient: {
@@ -76,6 +80,27 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+
+  //Styles for header 
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '103%',
+    paddingHorizontal: 20,
+    paddingTop: 80,
+    position: 'absolute',
+    top: 0,
+  },
+  headerTitle: {
+    color: '#ffffff',
+    fontSize: 12,
+    fontWeight: '700',
+    
+  },
+
+
   // Apply container styles to inner content
   container: {
     flex: 1,
@@ -87,7 +112,8 @@ const styles = StyleSheet.create({
     height: 350, // Adjust size as necessary
     borderRadius: 10,
     overflow: "hidden",
-    marginBottom: 20,
+    marginBottom: 10,
+    
   },
   info: {
     alignItems: "center",
@@ -97,10 +123,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: "#ffffff",
+    
   },
   artist: {
     fontSize: 14,
     color: "#d0d0cd",
+    
   },
   progressBarContainer: {
     flexDirection: "row",
