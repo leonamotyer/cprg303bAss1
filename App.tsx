@@ -13,12 +13,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* Three Dots Menu */}
-      <View style={styles.header}>
-        <TouchableOpacity>
-          <Feather name="more-horizontal" size={30} color="white" />
-        </TouchableOpacity>
-      </View>
+      
      {/* Header Row */} 
         <View style={styles.headerRow}>
           <TouchableOpacity>
@@ -28,7 +23,7 @@ export default function App() {
           <Text style={styles.headerTitle}>Everyday tunes</Text>
           
           <TouchableOpacity>
-            <AntDesign name="ellipsis1" size={24} color="#ffffff" />
+            <AntDesign name="ellipsis1" size={34} color="#ffffff" />
           </TouchableOpacity>
         </View>
     
@@ -50,25 +45,7 @@ export default function App() {
         </View>
         <Text style={styles.artist}>Tyler the Creator</Text>
       </View>
-      {/* Song Info */}
-      <View style={styles.info}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>Sticky</Text>
-          <TouchableOpacity>
-            <AntDesign name="pluscircle" size={20} color="white" />
-          </TouchableOpacity>
-        </View>
-        <Text style={styles.artist}>Tyler the Creator</Text>
-      </View>
 
-      {/* Progress Bar */}
-      <View style={styles.progressBarContainer}>
-        <Text style={styles.time}>0:02</Text>
-        <View style={styles.progressBar}>
-          <View style={styles.progressBarFill}></View>
-        </View>
-        <Text style={styles.time}>4:13</Text>
-      </View>
       {/* Progress Bar */}
       <View style={styles.progressBarContainer}>
         <Text style={styles.time}>0:02</Text>
