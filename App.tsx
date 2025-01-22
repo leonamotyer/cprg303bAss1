@@ -102,7 +102,7 @@ export default function App() {
         </TouchableOpacity>
       </View>
     </View>
-    </View>
+    
   );
 }
 
@@ -143,7 +143,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     overflow: "hidden",
     marginBottom: 20,
-    marginBottom: 20,
   },
   info: {
     alignItems: "flex-start",
@@ -172,13 +171,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     width: 340,
-    width: 340,
     marginBottom: 20,
   },
   progressBar: {
     flex: 1,
     height: 5,
-    backgroundColor: "#d1d3cf",
     backgroundColor: "#d1d3cf",
     borderRadius: 3,
     marginHorizontal: 10,
@@ -188,12 +185,10 @@ const styles = StyleSheet.create({
     width: "10%",
     height: "100%",
     backgroundColor: "white",
-    backgroundColor: "white",
     borderRadius: 3,
   },
   time: {
     fontSize: 12,
-    color: "#d1d3cf",
     color: "#d1d3cf",
   },
   controls: {
