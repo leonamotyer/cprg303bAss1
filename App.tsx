@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import AntDesign from '@expo/vector-icons/AntDesign';
-import Feather from '@expo/vector-icons/Feather';
+import AntDesign from "@expo/vector-icons/AntDesign";
+import Feather from "@expo/vector-icons/Feather";
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -22,7 +22,9 @@ export default function App() {
 
       {/* Album Cover */}
       <ImageBackground
-        source={{ uri: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7d/bd/e9/7dbde97e-b97d-8cc3-0203-218b687408a9/196872555059.jpg/800x800cc.jpg" }}
+        source={{
+          uri: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7d/bd/e9/7dbde97e-b97d-8cc3-0203-218b687408a9/196872555059.jpg/800x800cc.jpg",
+        }}
         style={styles.cover}
       />
 
@@ -49,7 +51,7 @@ export default function App() {
       {/* Controls */}
       <View style={styles.controls}>
         <TouchableOpacity style={styles.controlButton}>
-          <Ionicons name="shuffle" size={35} color="white" />
+          <Ionicons name="shuffle" size={35} color="#32CD32" /> {/* green button */}
         </TouchableOpacity>
         <TouchableOpacity style={styles.controlButton}>
           <AntDesign name="stepbackward" size={40} color="white" />
@@ -63,8 +65,9 @@ export default function App() {
         <TouchableOpacity style={styles.controlButton}>
           <Feather name="repeat" size={24} color="white" />
         </TouchableOpacity>
+
         {/* Sleep Timer */}
-        <TouchableOpacity style={styles.controlButton}>
+        <TouchableOpacity style={styles.sleepTimer}>
           <Feather name="clock" size={24} color="white" />
         </TouchableOpacity>
       </View>
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
   },
   header: {
     position: "absolute",
-    top: 50, // Adjusted to move the 3 dots lower
+    top: 50,
     right: 20,
     zIndex: 1,
   },
@@ -95,29 +98,31 @@ const styles = StyleSheet.create({
   info: {
     alignItems: "flex-start",
     marginBottom: 20,
+    width: 340,
   },
   titleContainer: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between", // This ensures the title is on the left and the plus icon is on the right
-    width: "80%",
-    marginHorizontal: "10%",
+    justifyContent: "space-between",
+    width: "100%",
+    paddingHorizontal: 10,
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: "white",
     marginRight: 10,
   },
   artist: {
     fontSize: 14,
-    color: "#666",
+    color: "#d1d3cf",
+    paddingHorizontal: 10,
+    marginTop: 5,
   },
   progressBarContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: 375,
-    paddingHorizontal: 20,
+    width: 340,
     marginBottom: 20,
   },
   progressBar: {
@@ -131,19 +136,24 @@ const styles = StyleSheet.create({
   progressBarFill: {
     width: "10%",
     height: "100%",
-    backgroundColor: "#666",
+    backgroundColor: "white",
     borderRadius: 3,
   },
   time: {
     fontSize: 12,
-    color: "#666",
+    color: "#d1d3cf",
   },
   controls: {
     flexDirection: "row",
-    justifyContent: "center",
+    justifyContent: "space-around",
     alignItems: "center",
+    width: 340,
+    marginBottom: 20,
   },
   controlButton: {
-    marginHorizontal: 20,
+    marginHorizontal: 10,
+  },
+  sleepTimer: {
+    marginLeft: 10,
   },
 });
