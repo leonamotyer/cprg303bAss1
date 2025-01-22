@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from "react-native";
+
+import { LinearGradient } from 'expo-linear-gradient'; // Importing the LinearGradient component
 import { Ionicons } from "@expo/vector-icons";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Feather from "@expo/vector-icons/Feather";
+
 
 export default function App() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -11,7 +14,25 @@ export default function App() {
     setIsPlaying(!isPlaying);
   };
 
-  return (
+
+    <LinearGradient
+      colors={['#969685', '#7a7a6d', '#56564d']} // Gradient colors
+      style={styles.linearGradient} //spotifys multiple hues
+    >
+      <View style={styles.container}>
+        
+        {/* Header Row */} 
+        <View style={styles.headerRow}>
+          <TouchableOpacity>
+            <AntDesign name="down" size={24} color="#ffffff" />  
+          </TouchableOpacity>
+          
+          <Text style={styles.headerTitle}>Everyday tunes</Text>
+          
+          <TouchableOpacity>
+            <AntDesign name="ellipsis1" size={24} color="#ffffff" />
+          </TouchableOpacity>
+        </View>
     <View style={styles.container}>
       {/* Three Dots Menu */}
       <View style={styles.header}>
@@ -28,25 +49,21 @@ export default function App() {
         style={styles.cover}
       />
 
-      {/* Song Info */}
-      <View style={styles.info}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.title}>Sticky</Text>
-          <TouchableOpacity>
-            <AntDesign name="pluscircle" size={20} color="white" />
-          </TouchableOpacity>
-        </View>
-        <Text style={styles.artist}>Tyler the Creator</Text>
-      </View>
 
-      {/* Progress Bar */}
-      <View style={styles.progressBarContainer}>
-        <Text style={styles.time}>0:02</Text>
-        <View style={styles.progressBar}>
-          <View style={styles.progressBarFill}></View>
+        {/* Song Info */}
+        <View style={styles.info}>
+          <Text style={styles.title}>Sticky (feat. GloRilla, Sexyy Red & Lil Wayne)</Text>
+          <Text style={styles.artist}>Tyler, The Creator, GloRilla, Sexyy Red & Lil Wayne</Text>
         </View>
-        <Text style={styles.time}>4:13</Text>
-      </View>
+
+        {/* Progress Bar */}
+        <View style={styles.progressBarContainer}>
+          <Text style={styles.time}>0:02</Text>
+          <View style={styles.progressBar}>
+            <View style={styles.progressBarFill}></View>
+          </View>
+          <Text style={styles.time}>4:13</Text>
+        </View>
 
       {/* Controls */}
       <View style={styles.controls}>
@@ -70,15 +87,44 @@ export default function App() {
         <TouchableOpacity style={styles.sleepTimer}>
           <Feather name="clock" size={24} color="white" />
         </TouchableOpacity>
+
       </View>
-    </View>
+    </LinearGradient>
   );
 }
-
 const styles = StyleSheet.create({
+ //full background colour 
+  linearGradient: {
+    flex: 1, 
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+
+  //Styles for header 
+  headerRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    width: '103%',
+    paddingHorizontal: 20,
+    paddingTop: 80,
+    position: 'absolute',
+    top: 0,
+  },
+  headerTitle: {
+    color: '#ffffff',
+    fontSize: 12,
+    fontWeight: '700',
+    
+  },
+
+
+  // Apply container styles to inner content
   container: {
     flex: 1,
     backgroundColor: "#949486",
+
     justifyContent: "center",
     alignItems: "center",
   },
@@ -93,7 +139,8 @@ const styles = StyleSheet.create({
     height: 340,
     borderRadius: 10,
     overflow: "hidden",
-    marginBottom: 20,
+    marginBottom: 10,
+    
   },
   info: {
     alignItems: "flex-start",
@@ -122,13 +169,16 @@ const styles = StyleSheet.create({
   progressBarContainer: {
     flexDirection: "row",
     alignItems: "center",
-    width: 340,
+
+    width: 475,
+    paddingHorizontal: 20,
+
     marginBottom: 20,
   },
   progressBar: {
     flex: 1,
     height: 5,
-    backgroundColor: "#d1d3cf",
+    backgroundColor: "#7a7a6d",
     borderRadius: 3,
     marginHorizontal: 10,
     position: "relative",
@@ -136,12 +186,13 @@ const styles = StyleSheet.create({
   progressBarFill: {
     width: "10%",
     height: "100%",
-    backgroundColor: "white",
+    backgroundColor: "#d0d0cd",
     borderRadius: 3,
   },
   time: {
     fontSize: 12,
-    color: "#d1d3cf",
+    color: "#d0d0cd"
+
   },
   controls: {
     flexDirection: "row",
@@ -156,4 +207,6 @@ const styles = StyleSheet.create({
   sleepTimer: {
     marginLeft: 10,
   },
+
+
 });
